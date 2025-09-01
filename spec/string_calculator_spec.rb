@@ -1,4 +1,4 @@
-require_relative 'string_calculator'
+require_relative '../lib/string_calculator'
 
 describe StringCalculator do
     let(:calc) { StringCalculator.new }
