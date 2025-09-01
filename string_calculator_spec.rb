@@ -10,4 +10,8 @@ describe StringCalculator do
     it 'returns 0 for nil input' do 
         expect(calc.add(nil)).to eq(0)
     end
+
+    it 'returns the number itself for a single number input' do
+        expect(calc.add("5")).to eq(5)
+    end
 end
