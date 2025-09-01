@@ -20,7 +20,8 @@ class StringCalculator
         end
         # convert the array of delimiters into regex
         regex = Regexp.union(delimiters)
-        nums = numbers.split(regex).map(&:to_i)
+        # ignore the numbers greater than 1000
+        nums = numbers.split(regex).map(&:to_i).select { |n| n <= 1000 }
 
         negatives = nums.select { |n| n < 0 }
         # raise error if there are negative numbers 
