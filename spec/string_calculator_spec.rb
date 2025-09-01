@@ -38,4 +38,16 @@ describe StringCalculator do
     it 'ignores numbers greater than 1000' do
         expect(calc.add("1,2,1234")).to eq(3)
     end
+
+    it 'returns the sum of numbers when seperated by a multi character delimiter' do
+        expect(calc.add("//[***]\n1***2***3")).to eq(6)
+    end
+
+    it 'returns the sum of numbers when seperated by a multiple single character delimiters' do
+        expect(calc.add("//[:][?]\n1:2?3")).to eq(6)
+    end
+
+    it 'returns the sum of numbers when seperated by multiple multi character delimiters' do
+        expect(calc.add("//[:::][??]\n1:::2??3")).to eq(6)
+    end
 end

@@ -16,7 +16,12 @@ class StringCalculator
         # as the rule mentions to change a delimiter begining will contain a seperate line
         if numbers.start_with?("//")
             header, numbers = numbers.split("\n", 2)
-            delimiters << header[2]
+            # check if their are multiple delimiters or multiple character delimiter or combination of both
+            if header.include?("[")
+                delimiters += header.scan(/\[(.*?)\]/).flatten
+            else
+                delimiters << header[2]
+            end
         end
         # convert the array of delimiters into regex
         regex = Regexp.union(delimiters)
