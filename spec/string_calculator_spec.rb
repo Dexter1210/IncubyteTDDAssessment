@@ -26,4 +26,8 @@ describe StringCalculator do
     it 'returns the sum of numbers seperated by newline' do
         expect(calc.add("1\n2,3")).to eq(6)
     end
+
+    it 'returns the sum of numbers seperated by single custom delimiter' do
+        expect(calc.add("//;\n1;2")).to eq(3)
+    end
 end
