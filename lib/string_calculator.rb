@@ -20,6 +20,12 @@ class StringCalculator
         end
         # convert the array of delimiters into regex
         regex = Regexp.union(delimiters)
-        numbers.split(regex).map(&:to_i).sum
+        nums = numbers.split(regex).map(&:to_i)
+
+        negatives = nums.select { |n| n < 0 }
+        # raise error if there are negative numbers 
+        raise "Negatives not allowed: #{negatives.join(', ')}" if negatives.any?
+
+        nums.sum
     end
 end
