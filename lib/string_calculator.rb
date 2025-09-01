@@ -1,5 +1,7 @@
 # class decalartion for the String calculator
 class StringCalculator
+    # regex supporting , and newline as delimiters
+    DEFAULT_DELIMITERS = /,|\n/
     # Adds numbers present in a string and returns the sum
     def add(numbers)
         # returns 0 if the input string is empty or no input passed
@@ -7,10 +9,10 @@ class StringCalculator
         # return the number itself if only a single number
         return numbers.to_i unless numbers.include?(",")
 
-        # split the string by comma and sum the numbers
+        # split the string by comma or new line and sum the numbers
         # @input is a string e.g. "1,2,3"
-        # split will split the strings based on , delimitator and then map will return an array of integers
+        # split will split the strings based on delimitator and then map will return an array of integers
         # sum will return the sum of array elements
-        numbers.split(",").map(&:to_i).sum
+        numbers.split(DEFAULT_DELIMITERS).map(&:to_i).sum
     end
 end

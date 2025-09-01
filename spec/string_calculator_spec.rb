@@ -22,4 +22,8 @@ describe StringCalculator do
     it 'returns the sum of multiple numbers seperated by comma' do
         expect(calc.add("1,2,3,4")).to eq(10)
     end
+
+    it 'returns the sum of numbers seperated by newline' do
+        expect(calc.add("1\n2,3")).to eq(6)
+    end
 end
